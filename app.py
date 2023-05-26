@@ -2,6 +2,7 @@ import streamlit as st
 import pandas as pd
 import joblib
 import io
+import numpy as np
 
 def add_bg_from_url():
     st.markdown(
@@ -57,7 +58,7 @@ def main():
         # Previsione dei dati usando il modello di regressione lineare
         st.header("Previsione aspettativa di vita")
         predictions = newmodel.predict(dfx)
-        df['Predizione aspettativa di vita'] = predictions
+        df['Predizione aspettativa di vita'] = np.round(predictions,1)
         st.write("Risultati previsione:")
         st.write(df)
         # Aggiungi un pulsante per il download del file
