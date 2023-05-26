@@ -38,19 +38,7 @@ def main():
             df = pd.read_excel(file, engine='openpyxl')
         else:
             df = pd.read_csv(file)
-        dfx = df.drop(columns=['infant deaths', 'percentage expenditure',
- 								'Hepatitis B',
- 								'Measles ',
- 								' BMI ',
-								'under-five deaths ',
-								'Polio',
-								'Diphtheria ',
-								' thinness  1-19 years',
-								' thinness 5-9 years',
-                                'Country',
-                                'Year',
-                                'Life_exp']
-                                )
+        dfx = df[['Adult Mortality',' HIV/AIDS','Income composition of resources','Schooling']]
         # Mostra i dati caricati
         st.write("Dati caricati:")
         st.write(df)
